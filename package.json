@@ -1,0 +1,90 @@
+{
+  "name": "password-generator",
+  "displayName": "Password Generator",
+  "description": "Generate random passwords directly in your editor",
+  "version": "1.0.0",
+  "publisher": "password-generator",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["password", "generator", "security", "random"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/password-generator/vscode-password-generator"
+  },
+  "license": "MIT",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "password-generator.generate",
+        "title": "Password Generator: Generate Password"
+      },
+      {
+        "command": "password-generator.generateAndInsert",
+        "title": "Password Generator: Generate & Insert at Cursor"
+      },
+      {
+        "command": "password-generator.generateAndCopy",
+        "title": "Password Generator: Generate & Copy to Clipboard"
+      }
+    ],
+    "configuration": {
+      "title": "Password Generator",
+      "properties": {
+        "passwordGenerator.length": {
+          "type": "number",
+          "default": 16,
+          "minimum": 4,
+          "maximum": 128,
+          "description": "Password length"
+        },
+        "passwordGenerator.includeUppercase": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include uppercase letters (A-Z)"
+        },
+        "passwordGenerator.includeLowercase": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include lowercase letters (a-z)"
+        },
+        "passwordGenerator.includeNumbers": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include numbers (0-9)"
+        },
+        "passwordGenerator.includeSymbols": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include symbols (!@#$%^&*...)"
+        },
+        "passwordGenerator.excludeAmbiguous": {
+          "type": "boolean",
+          "default": false,
+          "description": "Exclude ambiguous characters (0, O, I, l, 1)"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "password-generator.generateAndInsert",
+        "key": "ctrl+shift+p ctrl+shift+g",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
+  }
+}
