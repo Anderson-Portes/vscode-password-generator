@@ -2,13 +2,20 @@
   "name": "password-generator",
   "displayName": "Password Generator",
   "description": "Generate random passwords directly in your editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "password-generator",
   "engines": {
     "vscode": "^1.74.0"
   },
-  "categories": ["Other"],
-  "keywords": ["password", "generator", "security", "random"],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "password",
+    "generator",
+    "security",
+    "random"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/password-generator/vscode-password-generator"
@@ -68,13 +75,7 @@
         }
       }
     },
-    "keybindings": [
-      {
-        "command": "password-generator.generateAndInsert",
-        "key": "ctrl+shift+p ctrl+shift+g",
-        "when": "editorTextFocus"
-      }
-    ]
+    "keybindings": []
   },
   "scripts": {
     "compile": "tsc -p ./",
